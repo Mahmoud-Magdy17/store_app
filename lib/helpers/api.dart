@@ -3,10 +3,11 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class Api {
+  String baseURL ='https://fakestoreapi.com'; 
   Future<dynamic> get({required String endPoint}) async {
     http.Response response = await http.get(
       Uri.parse(
-        'https://fakestoreapi.com/$endPoint',
+        '$baseURL/$endPoint',
       ),
     );
     if (response.statusCode == 200) {
