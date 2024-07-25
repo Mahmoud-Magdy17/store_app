@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class Api {
-  String baseURL ='https://fakestoreapi.com'; 
+  String baseURL = 'https://fakestoreapi.com';
   Future<dynamic> get({required String endPoint}) async {
     http.Response response = await http.get(
       Uri.parse(
@@ -19,5 +19,14 @@ class Api {
         ),
       );
     }
+  }
+
+  Future<http.Response> post(
+      {required String endPoint, required Map<String, dynamic> data}) async {
+    http.Response response = await http.post(
+      Uri.parse('$baseURL/$endPoint'),
+      body: data,
+    );
+    return response;
   }
 }
