@@ -1,6 +1,9 @@
 import 'dart:convert';
+import 'dart:developer';
 
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:store_app/models/product_model.dart';
 
 class Api {
   String baseURL = 'https://fakestoreapi.com';
@@ -10,6 +13,7 @@ class Api {
         '$baseURL/$endPoint',
       ),
     );
+
     if (response.statusCode == 200) {
       return jsonDecode(response.body);
     } else {
@@ -21,12 +25,16 @@ class Api {
     }
   }
 
-  Future<http.Response> post(
-      {required String endPoint, required Map<String, dynamic> data}) async {
+  Future<Map<String, dynamic>> post({
+    required String endPoint,
+    required Map<String, dynamic> data,
+  }) async {
     http.Response response = await http.post(
-      Uri.parse('$baseURL/$endPoint'),
+      Uri.parse(
+        '$baseURL/$endPoint',
+      ),
       body: data,
     );
-    return response;
+    return jsonDecode(response.body);
   }
 }
