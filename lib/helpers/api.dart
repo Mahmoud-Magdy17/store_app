@@ -37,4 +37,21 @@ class Api {
     );
     return jsonDecode(response.body);
   }
+  
+  
+  Future<Map<String, dynamic>> put({
+    required String endPoint,
+    required Map<String, dynamic> data,
+    required int id,
+  }) async {
+    http.Response response = await http.put(
+      Uri.parse(
+        '$baseURL/$endPoint/$id',
+      ),
+      body: data,
+    );
+    return jsonDecode(response.body);
+  }
+
+
 }
