@@ -1,11 +1,8 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:store_app/core/helpers/api.dart';
-import 'package:store_app/features/display_products_feature/service/all_product_service.dart';
+import 'package:store_app/features/add_product_feature/views/add_product_service.dart';
 import 'package:store_app/features/update_product_feature/views/update_product_page.dart';
 
-import 'features/display_products_feature/views/display_all_products_page.dart';
+import 'features/display_products_feature/views/home_page.dart';
 
 void main(List<String> args) async {
   runApp(const StoreApp());
@@ -19,10 +16,11 @@ class StoreApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        DisplayAllProductsPage.route: (context) => const DisplayAllProductsPage(),
-        UpdateProductPage.route:(context) =>  UpdateProductPage()
+        HomePage.route: (context) => const HomePage(),
+        UpdateProductPage.route: (context) => const UpdateProductPage(),
+        AddProductPage.route: (context) => const AddProductPage(),
       },
-      initialRoute: DisplayAllProductsPage.route,
+      initialRoute: HomePage.route,
     );
   }
 }

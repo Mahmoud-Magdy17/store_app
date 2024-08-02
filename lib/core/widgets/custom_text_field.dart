@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 
-import '../../../../constants.dart';
+import '../../constants.dart';
 
 class CustomTextField extends StatelessWidget {
-  CustomTextField({
+  const CustomTextField({
     super.key,
     required this.hintText,
-    required this.onChange,
-    this.keyboardType
+    required this.onChanged,
+    this.keyboardType,
   });
-  TextInputType? keyboardType;
-  final Function(String) onChange;
+  final TextInputType? keyboardType;
+  final Function(String) onChanged;
   final String hintText;
   @override
   Widget build(BuildContext context) {
     return TextField(
       keyboardType: keyboardType,
-      onChanged: onChange,
+      onChanged: onChanged,
       decoration: InputDecoration(
           enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide(

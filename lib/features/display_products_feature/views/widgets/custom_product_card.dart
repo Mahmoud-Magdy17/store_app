@@ -32,9 +32,8 @@ class CustomProductCard extends StatelessWidget {
                 ],
               ),
               child: Card(
-                // clipBehavior: Clip.hardEdge,
                 child: Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -52,7 +51,7 @@ class CustomProductCard extends StatelessWidget {
                             '\$${product.price}',
                             style: const TextStyle(color: Colors.black),
                           ),
-                          Icon(
+                          const Icon(
                             Icons.favorite,
                             color: Colors.red,
                           ),

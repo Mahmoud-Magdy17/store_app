@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:store_app/core/models/product_model.dart';
 import 'package:store_app/features/update_product_feature/service/update_product_service.dart';
-import 'package:store_app/features/update_product_feature/views/widgets/custom_button.dart';
-import 'package:store_app/features/update_product_feature/views/widgets/custom_text_field.dart';
+import 'package:store_app/core/widgets/custom_button.dart';
+import 'package:store_app/core/widgets/custom_text_field.dart';
 
 class UpdateProductPage extends StatefulWidget {
   const UpdateProductPage({
@@ -47,7 +47,7 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
             children: [
               CustomTextField(
                 hintText: "(old) ${product.title}",
-                onChange: (data) {
+                onChanged: (data) {
                   productTitle = data;
                 },
               ),
@@ -56,7 +56,7 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
               ),
               CustomTextField(
                 hintText: '(old) ${product.description}',
-                onChange: (data) {
+                onChanged: (data) {
                   productDescription = data;
                 },
               ),
@@ -65,7 +65,7 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
               ),
               CustomTextField(
                 hintText: '(old) ${product.price}',
-                onChange: (data) {
+                onChanged: (data) {
                   productPrice = data;
                 },
                 keyboardType: TextInputType.number,
@@ -75,7 +75,7 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
               ),
               CustomTextField(
                 hintText: '(old) ${product.image}',
-                onChange: (data) {
+                onChanged: (data) {
                   productImage = data;
                 },
               ),
