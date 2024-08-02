@@ -2,17 +2,20 @@ import 'package:flutter/material.dart';
 
 import '../../../../constants.dart';
 
-class CustomFormField extends StatelessWidget {
-  const CustomFormField({
+class CustomTextField extends StatelessWidget {
+  CustomTextField({
     super.key,
     required this.hintText,
     required this.onChange,
+    this.keyboardType
   });
+  TextInputType? keyboardType;
   final Function(String) onChange;
   final String hintText;
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
+    return TextField(
+      keyboardType: keyboardType,
       onChanged: onChange,
       decoration: InputDecoration(
           enabledBorder: const OutlineInputBorder(
@@ -20,14 +23,14 @@ class CustomFormField extends StatelessWidget {
               color: kColor,
             ),
           ),
-          focusedBorder:const OutlineInputBorder(
+          focusedBorder: const OutlineInputBorder(
             borderSide: BorderSide(
               color: kColor,
             ),
           ),
           hintText: hintText,
           hintStyle: const TextStyle(
-            color: kColor,
+            color: Colors.grey,
           )),
       style: const TextStyle(
         color: kColor,

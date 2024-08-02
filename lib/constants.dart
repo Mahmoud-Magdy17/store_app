@@ -1,3 +1,3 @@
 import 'package:flutter/material.dart';
 
-const Color kColor = Colors.black;
+const Color kColor = Color.fromARGB(255, 61, 61, 61);
