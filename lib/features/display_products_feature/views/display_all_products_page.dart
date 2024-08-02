@@ -7,43 +7,41 @@ import 'widgets/custom_product_card.dart';
 
 class DisplayAllProductsPage extends StatelessWidget {
   const DisplayAllProductsPage({super.key});
-
+  static const String route = "Display all products";
   @override
   build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text("New Trend"),
-          centerTitle: true,
-          actions: [
-            IconButton(
-              icon: const Icon(FontAwesomeIcons.cartShopping),
-              onPressed: () {},
-            )
-          ],
-        ),
-        body: Padding(
-          padding: const EdgeInsets.only(top: 64),
-          child: FutureBuilder<List<ProductModel>>(
-            future: AllProductService().getAllProducts(),
-            builder: (BuildContext context, snapshot) {
-              List<ProductModel>? products = snapshot.data;
-              return products != null
-                  ? GridView.builder(
-                      clipBehavior: Clip.none,
-                      itemCount: products.length,
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        childAspectRatio: 0.9,
-                        crossAxisCount: 2,
-                      ),
-                      itemBuilder: (BuildContext context, int index) {
-                        return CustomProductCard(product: products[index]);
-                      },
-                    )
-                  : const CustomProgressIndicator();
-            },
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("New Trend"),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            icon: const Icon(FontAwesomeIcons.cartShopping),
+            onPressed: () {},
+          )
+        ],
+      ),
+      body: Padding(
+        padding: const EdgeInsets.only(top: 64),
+        child: FutureBuilder<List<ProductModel>>(
+          future: AllProductService().getAllProducts(),
+          builder: (BuildContext context, snapshot) {
+            List<ProductModel>? products = snapshot.data;
+            return products != null
+                ? GridView.builder(
+                    clipBehavior: Clip.none,
+                    itemCount: products.length,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      childAspectRatio: 0.9,
+                      crossAxisCount: 2,
+                    ),
+                    itemBuilder: (BuildContext context, int index) {
+                      return CustomProductCard(product: products[index]);
+                    },
+                  )
+                : const CustomProgressIndicator();
+          },
         ),
       ),
     );

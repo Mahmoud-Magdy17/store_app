@@ -1,34 +1,35 @@
 import 'package:flutter/material.dart';
 
-class CustomTextField extends StatelessWidget {
-  CustomTextField({
+import '../../../../constants.dart';
+
+class CustomFormField extends StatelessWidget {
+  const CustomFormField({
     super.key,
     required this.hintText,
     required this.onChange,
   });
-  final Color kColor = Colors.black;
-  Function(String) onChange;
+  final Function(String) onChange;
   final String hintText;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       onChanged: onChange,
       decoration: InputDecoration(
-          enabledBorder: OutlineInputBorder(
+          enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide(
               color: kColor,
             ),
           ),
-          focusedBorder: OutlineInputBorder(
+          focusedBorder:const OutlineInputBorder(
             borderSide: BorderSide(
               color: kColor,
             ),
           ),
           hintText: hintText,
-          hintStyle: TextStyle(
+          hintStyle: const TextStyle(
             color: kColor,
           )),
-      style: TextStyle(
+      style: const TextStyle(
         color: kColor,
       ),
     );

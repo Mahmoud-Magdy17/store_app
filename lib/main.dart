@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:store_app/core/helpers/api.dart';
 import 'package:store_app/features/display_products_feature/service/all_product_service.dart';
+import 'package:store_app/features/update_product_feature/views/update_product_page.dart';
 
 import 'features/display_products_feature/views/display_all_products_page.dart';
 
@@ -16,8 +17,11 @@ class StoreApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: DisplayAllProductsPage(),
+    return MaterialApp(
+      routes: {
+        DisplayAllProductsPage.route: (context) => const DisplayAllProductsPage(),
+      },
+      initialRoute: DisplayAllProductsPage.route,
     );
   }
 }
