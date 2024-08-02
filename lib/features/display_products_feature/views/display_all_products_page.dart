@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:store_app/core/widgets/custom_circular_progress_indeicator.dart';
-import 'package:store_app/models/product_model.dart';
-import '../services/all_product_service.dart';
+import 'package:store_app/core/models/product_model.dart';
+import '../service/all_product_service.dart';
 import 'widgets/custom_product_card.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class DisplayAllProductsPage extends StatelessWidget {
+  const DisplayAllProductsPage({super.key});
 
   @override
   build(BuildContext context) {

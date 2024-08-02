@@ -1,10 +1,10 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:store_app/helpers/api.dart';
-import 'package:store_app/services/all_product_service.dart';
+import 'package:store_app/core/helpers/api.dart';
+import 'package:store_app/features/display_products_feature/service/all_product_service.dart';
 
-import 'views/home_page.dart';
+import 'features/display_products_feature/views/display_all_products_page.dart';
 
 void main(List<String> args) async {
   runApp(const StoreApp());
@@ -17,7 +17,7 @@ class StoreApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: HomePage(),
+      home: DisplayAllProductsPage(),
     );
   }
 }
