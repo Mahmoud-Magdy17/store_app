@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:store_app/features/category_feature/service/category_service.dart';
 
 import '../../../../core/models/product_model.dart';
 import '../../../../core/widgets/custom_circular_progress_indeicator.dart';
-import '../../service/all_product_service.dart';
 import '../../../../core/widgets/custom_product_card.dart';
 
-class DisplayAllProducts extends StatelessWidget {
-  const DisplayAllProducts({
+
+class DisplayCategoryProducts extends StatelessWidget {
+  const DisplayCategoryProducts({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<ProductModel>>(
-      future: AllProductService().getAllProducts(),
+      future: CategoryService().getCategory(categoryName: ''),
       builder: (BuildContext context, snapshot) {
         List<ProductModel>? products = snapshot.data;
         return products != null
