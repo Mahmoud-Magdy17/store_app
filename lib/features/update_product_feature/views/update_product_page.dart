@@ -84,17 +84,15 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
               ),
               CustomButton(
                 title: "Update product",
-                onPressed: () {
+                onPressed: () async {
                   isLoading = true;
                   setState(() {});
 
                   try {
-                    updateProduct(
+                    await updateProduct(
                       product: product,
-                      productTitle: productTitle,
-                      productPrice: productPrice,
-                      productDescription: productDescription,
                     );
+                    log("product updated");
                   } catch (e) {
                     log("Exception: ${e.toString()}");
                   }
@@ -109,17 +107,17 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
       ),
     );
   }
-}
 
-void updateProduct({productTitle, productPrice, productDescription, product}) {
-  UpdateProductService().updateProduct(
-    product: ProductModel(
+  Future<void> updateProduct({product}) async {
+    await UpdateProductService().updateProduct(
+      product: ProductModel(
+        id: product.id,
+        title: productTitle ?? product.title,
+        price: productPrice ?? product.price,
+        description: productDescription ?? product.description,
+        category: product.category,
+      ),
       id: product.id,
-      title: productTitle ?? product.title,
-      price: productPrice ?? product.price,
-      description: productDescription ?? product.description,
-      category: product.category,
-    ),
-    id: product.id,
-  );
+    );
+  }
 }

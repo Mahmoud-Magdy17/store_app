@@ -5,13 +5,15 @@ import 'package:http/http.dart' as http;
 class Api {
   String baseURL = 'https://fakestoreapi.com';
   Future<dynamic> get({required String endPoint}) async {
+    log("Getting form: $baseURL/$endPoint");
     http.Response response = await http.get(
       Uri.parse(
         '$baseURL/$endPoint',
       ),
     );
-    
+
     try {
+      log("Data got: ${jsonDecode(response.body)}");
       return jsonDecode(response.body);
     } catch (e) {
       throw (
@@ -26,12 +28,15 @@ class Api {
     required String endPoint,
     required Map<String, dynamic> data,
   }) async {
+    log("Posting Data to: $baseURL/$endPoint -> Data: $data");
+
     http.Response response = await http.post(
       Uri.parse(
         '$baseURL/$endPoint',
       ),
       body: data,
     );
+    log('Response: ${jsonDecode(response.body)}');
     return jsonDecode(response.body);
   }
 
