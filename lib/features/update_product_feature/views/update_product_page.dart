@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:store_app/core/models/product_model.dart';
+import 'package:store_app/features/update_product_feature/views/widgets/custom_button.dart';
 import 'package:store_app/features/update_product_feature/views/widgets/custom_form_field.dart';
 
 class UpdateProductPage extends StatelessWidget {
@@ -32,7 +33,10 @@ class UpdateProductPage extends StatelessWidget {
             hintText: 'Image',
             onChange: (productImage) {},
           ),
-          
+          CustomButton(
+            title: "Update product",
+            onPressed: () {},
+          ),
         ],
       ),
     );
