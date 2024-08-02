@@ -4,7 +4,7 @@ class ProductModel {
   final String price;
   final String description;
   final String category;
-  final String image;
+  String? image;
   final RatingModel? rating;
 
   ProductModel({
@@ -13,14 +13,14 @@ class ProductModel {
     required this.price,
     required this.description,
     required this.category,
-    required this.image,
+    this.image = 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
     this.rating,
   });
   factory ProductModel.fromJson(json) {
     return ProductModel(
       id: json['id'],
       title: json['title'],
-      price: json['price'],
+      price: json['price'].toString(),
       description: json['description'],
       category: json['category'],
       image: json['image'],

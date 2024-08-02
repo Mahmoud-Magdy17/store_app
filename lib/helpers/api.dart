@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'package:http/http.dart' as http;
 
 class Api {
@@ -9,10 +10,10 @@ class Api {
         '$baseURL/$endPoint',
       ),
     );
-
-    if (response.statusCode == 200) {
+    
+    try {
       return jsonDecode(response.body);
-    } else {
+    } catch (e) {
       throw (
         Exception(
           "There is an error on status code ${response.statusCode}",
