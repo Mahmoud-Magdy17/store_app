@@ -1,9 +1,5 @@
 import 'dart:convert';
-import 'dart:developer';
-
-import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:store_app/models/product_model.dart';
 
 class Api {
   String baseURL = 'https://fakestoreapi.com';
@@ -37,8 +33,7 @@ class Api {
     );
     return jsonDecode(response.body);
   }
-  
-  
+
   Future<Map<String, dynamic>> put({
     required String endPoint,
     required Map<String, dynamic> data,
@@ -52,6 +47,4 @@ class Api {
     );
     return jsonDecode(response.body);
   }
-
-
 }
