@@ -9,13 +9,10 @@ class CustomProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(
+        Navigator.pushNamed(
           context,
-          MaterialPageRoute(
-            builder: (constext) {
-              return UpdateProductPage(product: product);
-            },
-          ),
+          UpdateProductPage.route,
+          arguments: product,
         );
       },
       child: Stack(

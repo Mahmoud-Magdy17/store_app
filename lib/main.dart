@@ -20,6 +20,7 @@ class StoreApp extends StatelessWidget {
     return MaterialApp(
       routes: {
         DisplayAllProductsPage.route: (context) => const DisplayAllProductsPage(),
+        UpdateProductPage.route:(context) =>  UpdateProductPage()
       },
       initialRoute: DisplayAllProductsPage.route,
     );

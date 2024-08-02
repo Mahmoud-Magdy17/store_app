@@ -10,9 +10,7 @@ class AllProductService {
     for (var jSonItem in jSonData) {
       ProductModel item = ProductModel.fromJson(jSonItem);
       productsList.add(item);
-      // print(ProductModel.fromJson(jSonItem).toString());
     }
-    // log(productsList.toString());
     return productsList;
   }
 }
