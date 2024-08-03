@@ -30,7 +30,7 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
 
   @override
   Widget build(BuildContext context) {
-    ProductModel product =
+    ProductModel? product =
         ModalRoute.of(context)!.settings.arguments as ProductModel;
 
     return ModalProgressHUD(

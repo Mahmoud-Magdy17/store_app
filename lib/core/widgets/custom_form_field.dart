@@ -13,7 +13,8 @@ class CustomFormField extends StatelessWidget {
   final TextInputType? keyboardType;
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return SizedBox(
+      height: 64,
       child: TextFormField(
         keyboardType: keyboardType,
         validator: (value) {
