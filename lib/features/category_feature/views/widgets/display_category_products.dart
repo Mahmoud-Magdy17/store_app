@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:store_app/core/helpers/functions/show_custom_toast.dart';
 import 'package:store_app/features/category_feature/service/category_service.dart';
 
 import '../../../../core/models/product_model.dart';
@@ -10,15 +11,17 @@ class DisplayCategoryProducts extends StatelessWidget {
     super.key,
   });
   static const String route = "Display Category products";
-  
+
   @override
   Widget build(BuildContext context) {
     String? category = ModalRoute.of(context)!.settings.arguments as String?;
 
     return FutureBuilder<List<ProductModel>>(
-      future: CategoryService().getCategory(categoryName: category??"women's clothing"),
+      future: CategoryService()
+          .getCategory(categoryName: category ?? "women's clothing"),
       builder: (BuildContext context, snapshot) {
         List<ProductModel>? products = snapshot.data;
+        products != null ? showCustomToast('$category Category items') : () {};
         return products != null
             ? GridView.builder(
                 clipBehavior: Clip.none,

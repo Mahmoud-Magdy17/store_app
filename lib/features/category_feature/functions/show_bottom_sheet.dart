@@ -3,12 +3,9 @@ import 'package:store_app/features/category_feature/views/widgets/custom_bottom_
 
 void showCustomSheet({required BuildContext context}) {
   showModalBottomSheet(
-    
     context: context,
     builder: (ctx) {
-      return const CustomBottomSheet(
-        
-      );
+      return const CustomBottomSheet();
     },
   );
 }

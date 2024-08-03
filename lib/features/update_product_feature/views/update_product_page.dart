@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:store_app/core/helpers/functions/show_custom_toast.dart';
 import 'package:store_app/core/models/product_model.dart';
 import 'package:store_app/features/update_product_feature/service/update_product_service.dart';
 import 'package:store_app/core/widgets/custom_button.dart';
@@ -93,6 +94,8 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
                       product: product,
                     );
                     log("product updated");
+                    Navigator.pop(context);
+                    showCustomToast('Product Updated Successfully');
                   } catch (e) {
                     log("Exception: ${e.toString()}");
                   }
